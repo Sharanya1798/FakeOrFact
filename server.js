@@ -1,3 +1,5 @@
+const appJs = require(__dirname+"/app.js");
+
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -10,14 +12,16 @@ app.get("/", function (req, res){
 });
 
 app.post("/", function (req, res){
-    var userName = req.body.username;
-    var password = req.body.password;
+    const userName = req.body.username;
+    const password = req.body.password;
+    appJs().insertDocuments(userName, password);
+    //app.insertDocuments(userName, password);
+    //insertDocuments
 
-    console.log(userName+"  "+password);
 
     res.send("success");
 });
 
-app.listen(3000, function (){
+app.listen(3001, function (){
     console.log("Server started on port 3000");
 })

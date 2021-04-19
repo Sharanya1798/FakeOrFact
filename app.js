@@ -1,36 +1,27 @@
-const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
-let db;
-// Connection URL
-const url = 'mongodb://localhost:27017';
-
-// Database Name
-const dbName = 'SPE_Major';
-
-// Create a new MongoClient
-const client = new MongoClient(url);
-
-// Use connect method to connect to the Server
-
-module.exports = insertDocuments;
-function insertDocuments(username, password) {
-    client.connect(function(err) {
-        assert.strictEqual(null, err);
-        console.log("Connected successfully to server");
-
-        db = client.db(dbName);
-
-    const loginDetails = db.collection('login');
-    // Get the documents collection
-    // Insert some documents
-        loginDetails.insertMany([
-            {username : password}, {username : password}, {username : password}
-        ], function(err, result) {
-            assert.strictEqual(err, null);
-            assert.strictEqual(3, result.result.n);
-            assert.strictEqual(3, result.ops.length);
-            console.log("Inserted 3 documents into the collection");
-        });
-        client.close()
-    });
-}
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const passport = require("passport");
+const users = require("./routes/api/Users");
+const app = express();
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+// DB Config
+const db = require("./config/keys").mongoURI;
+// Connect to MongoDB
+mongoose
+    .connect(
+        db,
+        { useNewUrlParser: true, useUnifiedTopology: true }
+    )
+    .then(() => console.log("MongoDB successfully connected"))
+    .catch(err => console.log(err));
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/Passport")(passport);
+// Routes
+app.use("/api/users", users);
+app.use("/api/users/register")
+const port = 3000; // process.env.port is Heroku's port if you choose to deploy the app there
+app.listen(port, () => console.log(`Server is started and running on port ${port} !`));

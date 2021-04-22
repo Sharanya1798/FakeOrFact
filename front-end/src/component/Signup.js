@@ -5,11 +5,14 @@ function Signup() {
         const [ userName, setUname ] = useState('')
         const [ email, setemail ] = useState('')
         const [ password, setPass ] = useState('')
+        const [ password2, setPass2 ] = useState('')
+        const [error,setError] = useState("");
+
         const history = useHistory();
 
         const onRegister = (e) => {
                 e.preventDefault()
-                const data = { userName,email,mobile, password  }
+                const data = { userName,email, password, password2 }
                 const requestOptions = {
                   method: 'POST',
                   mode: 'cors',
@@ -21,9 +24,17 @@ function Signup() {
                 };
                 fetch('http://localhost:3000/signup', requestOptions)
                   .then(response => {
-                    response.json()
-                  console.log('res',response);
-                  history.push("/")
+                    if(response.status !== 200 ) {
+                        return response.json().then((body) => {
+                            console.log('red',body);
+                            setError(body.msg)
+                          })
+                    }
+        
+                    console.log("signup successful")
+                    history.push("/")
+        
+                    return response.json()
                   })
                   .then(data => console.log(data));
 
@@ -35,6 +46,7 @@ function Signup() {
                 <div className="text-center">Already have an account? <NavLink to="/login">Login here</NavLink></div>
                 <h2>Sign Up</h2>
                 <hr />
+                <div style={{ color: 'red'}} className='text-center mb-2'>{error}</div>
                 <div className="form-group">
                     <div className="input-group">
                         <div className="input-group-prepend">
@@ -42,7 +54,8 @@ function Signup() {
                                 <span className="fa fa-user"></span>
                             </span>
                         </div>
-                        <input type="text" onChange={(e) => setUname(e.target.value)} className="form-control" name="userName" placeholder="Username" required="required" />
+                        <input type="text" onChange={(e) => {setError('')
+                    setUname(e.target.value)}} className="form-control" name="userName" placeholder="Username" required="required" />
                     </div>
                 </div>
                 <div className="form-group">
@@ -52,17 +65,8 @@ function Signup() {
                                 <i className="fa fa-paper-plane"></i>
                             </span>
                         </div>
-                        <input type="email" onChange={(e) => setemail(e.target.value)} className="form-control" name="email" placeholder="Email Address" required="required" />
-                    </div>
-                </div>
-                <div className="form-group">
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">
-                            <i className="fa fa-phone"></i>
-                            </span>
-                        </div>
-                        <input type="number" onChange={(e) => setMobile(e.target.value)} className="form-control" name="mobile" placeholder="Phone Number" required="required" />
+                        <input type="email" onChange={(e) =>{setError('') 
+                        setemail(e.target.value)}} className="form-control" name="email" placeholder="Email Address" required="required" />
                     </div>
                 </div>
                 <div className="form-group">
@@ -72,7 +76,19 @@ function Signup() {
                                 <i className="fa fa-lock"></i>
                             </span>
                         </div>
-                        <input type="text" onChange={(e) => setPass(e.target.value)} className="form-control" name="password" placeholder="Password" required="required" />
+                        <input type="password" onChange={(e) => {setError('')
+                         setPass(e.target.value)}} className="form-control" name="password" placeholder="Password" required="required" />
+                    </div>
+                </div>
+                <div className="form-group">
+                    <div className="input-group">
+                        <div className="input-group-prepend">
+                            <span className="input-group-text">
+                                <i className="fa fa-lock"></i>
+                            </span>
+                        </div>
+                        <input type="password" onChange={(e) => {setError('') 
+                        setPass2(e.target.value)}} className="form-control" name="password2" placeholder="Confirm Password" required="required" />
                     </div>
                 </div>
                 <div className="form-group">

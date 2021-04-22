@@ -1,17 +1,15 @@
 import React , { useState } from 'react'
-import { NavLink ,useHistory, Link} from 'react-router-dom'
+import { NavLink ,useHistory} from 'react-router-dom'
 
 function Signup() {
         const [ userName, setUname ] = useState('')
         const [ email, setemail ] = useState('')
         const [ password, setPass ] = useState('')
-        const [ password2, setPass2 ] = useState('')
         const history = useHistory();
-
 
         const onRegister = (e) => {
                 e.preventDefault()
-                const data = { userName,email, password, password2 }
+                const data = { userName,email,mobile, password  }
                 const requestOptions = {
                   method: 'POST',
                   mode: 'cors',
@@ -30,17 +28,13 @@ function Signup() {
                   .then(data => console.log(data));
 
                 }
-
     return (
         <>
             <div className="signup-form">
                 <form action="/examples/actions/confirmation.php" method="post" />
-                <Link to="/" className="btn-flat waves-effect">
-                    <i className="material-icons left"></i> Back to home
-                </Link>
-                <h2>Sign Up</h2>
                 <div className="text-center">Already have an account? <NavLink to="/login">Login here</NavLink></div>
-                <br/>
+                <h2>Sign Up</h2>
+                <hr />
                 <div className="form-group">
                     <div className="input-group">
                         <div className="input-group-prepend">
@@ -58,7 +52,7 @@ function Signup() {
                                 <i className="fa fa-paper-plane"></i>
                             </span>
                         </div>
-                        <input type="email" onChange={(e) => setemail(e.target.value)} className="form-control" name="email" placeholder="Email" required="required" />
+                        <input type="email" onChange={(e) => setemail(e.target.value)} className="form-control" name="email" placeholder="Email Address" required="required" />
                     </div>
                 </div>
                 <div className="form-group">
@@ -68,7 +62,7 @@ function Signup() {
                             <i className="fa fa-phone"></i>
                             </span>
                         </div>
-                        <input type="password" onChange={(e) => setPass(e.target.value)} className="form-control" name="password" placeholder="Password" required="required" />
+                        <input type="number" onChange={(e) => setMobile(e.target.value)} className="form-control" name="mobile" placeholder="Phone Number" required="required" />
                     </div>
                 </div>
                 <div className="form-group">
@@ -78,7 +72,7 @@ function Signup() {
                                 <i className="fa fa-lock"></i>
                             </span>
                         </div>
-                        <input type="password" onChange={(e) => setPass2(e.target.value)} className="form-control" name="password2" placeholder="Confirm Password" required="required" />
+                        <input type="text" onChange={(e) => setPass(e.target.value)} className="form-control" name="password" placeholder="Password" required="required" />
                     </div>
                 </div>
                 <div className="form-group">

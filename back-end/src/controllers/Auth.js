@@ -1,8 +1,13 @@
 let User = require("../models/signupSchema");
 const bcrypt = require("bcrypt");
+const Validator = require("validator");
+const isEmpty = require("is-empty");
 
 exports.singin = (req,res) =>{
     const {userName,password} = req.body;
+    if(isEmpty(userName) || isEmpty(password))
+        res.status(400).send({msg : "Required fields are empty !!"})
+    else {
     User.findOne({userName},(err,foundUser)=>{
         if(foundUser){
             bcrypt.compare(password,foundUser.password,(err,result)=>{
@@ -17,9 +22,9 @@ exports.singin = (req,res) =>{
 
             })
         } else {
-            res.status(400).send({msg: "invalid username / password"});
+            res.status(400).send({msg: "username not found"});
         }
-    })
+    })}
 }
 
 
@@ -27,11 +32,11 @@ exports.singin = (req,res) =>{
 exports.signup = (req,res) =>{
     const userName= req.body.userName;
     const email= req.body.email;
-     const password= req.body.password;
-     const password2= req.body.password2;
-     bcrypt.hash(password,10,(err,hash)=>{
-         const newSignup = new User({
-            userName,email,password:hash, password2:hash
+    const password= req.body.password;
+    const password2 = req.body.password2;
+    bcrypt.hash(password,10,(err,hash)=>{
+        const newSignup = new User({
+            userName,email,password:hash
          });
          newSignup.save(err=>{
              if(err){

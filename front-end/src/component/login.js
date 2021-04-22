@@ -2,15 +2,10 @@ import React, { useState } from 'react'
 import { NavLink,useHistory } from 'react-router-dom'
 
 function Login() {
-
     const [userName,setuserName] = useState("");
     const [password,setPassword] = useState("");
     const [error,setError] = useState("");
     const history = useHistory()
-    const errors = {
-        name : "",
-        pass : ""
-    }
 
     const onLogin = (e)=>{
         e.preventDefault()
@@ -34,14 +29,14 @@ function Login() {
                     setError(body.msg)
                   })
             }
+
+            console.log("login successful")
             history.push("/")
 
             return response.json()
 
           })
-          .then(data => console.log(data));
-
-        
+          .then(data => console.log(data));        
     }
 
     return (
@@ -49,7 +44,6 @@ function Login() {
        <div className="login-form">
     <form action="/examples/actions/confirmation.php" method="post">
     <p className="text-center text-muted small">Don't have an account? <NavLink to="/signup">Sign up here!</NavLink></p>
-
         <h2 className="text-center">Log in</h2>   
         <div style={{ color: 'red'}} className='text-center mb-2'>
             {error}
@@ -64,8 +58,7 @@ function Login() {
                 <input type="text" onChange={(e)=> {
                     setError('')
                     setuserName(e.target.value)}}
-                     className="form-control" name="username" placeholder="Username" required="required"/>
-                <div style={{ color: 'red'}} className='text-center mb-2'>{errors.name}</div>				
+                     className="form-control" name="username" placeholder="Username" required="required"/>				
             </div>
         </div>
 		<div className="form-group">
@@ -77,8 +70,7 @@ function Login() {
                 </div>
                 <input type="password" onChange={(e)=> {
                     setError('')
-                    setPassword(e.target.value)}} className="form-control" name="password" placeholder="Password" required="required"/>	
-                    <div style={{ color: 'red'}} className='text-center mb-2'>{errors.pass}</div>			
+                    setPassword(e.target.value)}} className="form-control" name="password" placeholder="Password" required="required"/>				
             </div>
         </div>        
         <div className="form-group">

@@ -29,10 +29,6 @@ app.use(function (req, res, next) {
     })
 app.use("/",Authentication);
 
-app.get("/",(req,res)=>{
-    res.send("hello ashutosh shrivastava");
-})
-
 app.listen(3000,()=>{
     console.log(`Server is running on port :${port}`);
 })

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { NavLink,useHistory } from 'react-router-dom'
-
 function Login() {
     const [userName,setuserName] = useState("");
     const [password,setPassword] = useState("");

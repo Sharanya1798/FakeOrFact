@@ -26,8 +26,6 @@ exports.singin = (req,res) =>{
     })}
 }
 
-
-
 exports.signup = (req,res) =>{
     const userName= req.body.userName;
     const email= req.body.email;

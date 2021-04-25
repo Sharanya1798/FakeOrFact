@@ -2,16 +2,16 @@
 - name: Pull and Run docker image
   hosts: localhost
   tasks:
-    - name: ls and pwd
-      command:
-        cmd: ls
-    - name: pwd
-      command:
-        cmd: pwd
-#    - name: pull images specifed in docker-compose
-#      command: docker-compose -f docker-compose.yml pull
-#    - name: run the pulled docker images in detached mode
-#      command: docker-compose -f docker-compose.yml up -d
+    # - name: ls and pwd
+    #   command:
+    #     cmd: ls
+    # - name: pwd
+    #   command:
+    #     cmd: pwd
+   - name: pull images specifed in docker-compose
+     command: docker-compose -f docker-compose.yml pull
+   - name: run the pulled docker images in detached mode
+     command: docker-compose -f docker-compose.yml up -d
 #=======
 #      command: docker-compose -f docker-compose.yml pull
 #    - name: run the pulled docker images in detached mode

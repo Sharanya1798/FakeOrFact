@@ -1,0 +1,29 @@
+---
+- name: Pull and Run docker image
+  hosts: localhost
+  tasks:
+    - name: ls and pwd
+      command:
+        cmd: ls
+    - name: pwd
+      command:
+        cmd: pwd
+#    - name: pull images specifed in docker-compose
+#      command: docker-compose -f docker-compose.yml pull
+#    - name: run the pulled docker images in detached mode
+#      command: docker-compose -f docker-compose.yml up -d
+#=======
+#      command: docker-compose -f docker-compose.yml pull
+#    - name: run the pulled docker images in detached mode
+#      command: docker-compose -f docker-compose.yml up -d
+#>>>>>>> a42a6d61c7003941dbc6da6a1995ddb5e1d23adf
+#        shell: docker-compose pull
+#        args:
+#          chdir: ./..
+#        become: True # because you're using sudo
+#    - name: pull images specifed in docker-compose
+#      ansible.builtin.shell:
+#        cmd: docker-compose pull
+#    - name: run the pulled docker image in detached mode
+#      ansible.builtin.shell:
+#        cmd: docker-compose up -d

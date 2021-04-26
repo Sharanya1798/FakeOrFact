@@ -14,7 +14,7 @@ const port = 3000;
 
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri.toString(),{ useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://Sharanya:Sharna&ashu798@fakeorfact.9ynja.mongodb.net/Major_project?retryWrites=true&w=majority",{ useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true })
 .then(()=>{
     console.log("Database is connected");
 })

@@ -1,23 +1,30 @@
 let User = require("../models/signupSchema");
+var jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const Validator = require("validator");
 const isEmpty = require("is-empty");
+let config = require("../../config");
 
 exports.singin = (req,res) =>{
     const {userName,password} = req.body;
     if(isEmpty(userName) || isEmpty(password))
         res.status(400).send({msg : "Required fields are empty !!"})
     else {
+
     User.findOne({userName},(err,foundUser)=>{
         if(foundUser){
             bcrypt.compare(password,foundUser.password,(err,result)=>{
                 if (result){
-                    res.status(200).send(foundUser)
+                    var token = jwt.sign({id: result._id}, config.secret, {
+                        expiresIn: 86400
+                    });
+                    res.json({new_token: token});
+                    //res.status(200).send({foundUser, auth: true, token: token});
                 }else if(err){
                     console.log(err);
                     res.status(400).send({msg : "error found"})
                 }else{
-                    res.status(400).send({msg: "invalid username / password"});
+                    res.status(400).send({msg: "invalid username / password", auth: false, token: null});
                 }
             })
         } else {

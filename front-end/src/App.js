@@ -1,18 +1,19 @@
 import React from 'react';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
+import {useHistory } from 'react-router-dom'
 import './App.css'
 import ImageSlider from './component/imageSlider';
 import Login from "./component/login";
 import Navbar from "./component/Navbar";          
-import Signup from './component/Signup'
+import Signup from './component/Signup';
+import Logout from "./component/logout";
 import { SliderData } from './component/sliderData'
 
-
-
 function App() {
+
   return (
    <>
-   {/* <Navbar/> */}
+   <h2 className="text-center">FakeOrFact</h2>
 <Router>
 <Navbar/>
    <Route path="/login">
@@ -25,6 +26,9 @@ function App() {
 
    <Route path="/">
      <ImageSlider slides={SliderData} />
+   </Route>
+   <Route path="/logout">
+     <Logout/>
    </Route>
    </Router>
    </>

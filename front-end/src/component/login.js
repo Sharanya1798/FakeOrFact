@@ -23,16 +23,16 @@ function Login() {
             
             if(response.status !== 200 ) {
                 return response.json().then((body) => {
-                    // throw new Error(body.error)
                     console.log('red',body);
                     setError(body.msg)
                   })
             }
-
-            console.log("login successful")
-            history.push("/")
-
-            return response.json()
+            response.json()
+                .then(responseJson => {
+                history.push("/")
+                window.localStorage.setItem('my_token', responseJson.new_token);
+                console.log("login successful")
+                })
 
           })
           .then(data => console.log(data));        

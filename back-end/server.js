@@ -1,11 +1,11 @@
-require('dotenv').config();
+const dotenv = require("dotenv");
+dotenv.config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const Authentication = require("./src/Routes/Authentication");
 const app = express();
-
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -14,7 +14,7 @@ const port = 3000;
 
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri,{ useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true })
+mongoose.connect(uri.toString(),{ useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true })
 .then(()=>{
     console.log("Database is connected");
 })

@@ -2,6 +2,9 @@
 .bg-light {
   background-color: #ffff !important;
 }
+.bg-blue {
+  background-color: cadetblue !important;
+}
 body {
 color: #fff;
 background: #63738a;
@@ -24,6 +27,43 @@ margin: 0 auto;
 padding: 30px 0;
   font-size: 15px;
 }
+.query-form {
+  width: 900px;
+margin: 0 auto;
+font-size: 15px;
+padding:20px; 
+border-bottom:1px solid #636363;
+}
+.discussionforum_font {
+  font-weight:bold;
+  }
+
+  .discussionforum_color {
+      color: #636363;
+      margin:0 2px;
+  }
+
+  ul.lightgrayfont li a.talentforum_username {
+      color:#bfbfbf;
+  }
+
+  ul.lightgrayfont li a.talentforum_username:hover {
+  text-decoration:none;
+  }
+
+  ul.list-unstyled li.tForum h3.bigdarkgrayfont a.Forum_Ques:hover {
+      text-decoration:none !important;
+  }
+
+  ul.list-unstyled li.tForum h3.bigdarkgrayfont{
+  text-decoration:none !important;
+  }
+  li.del_btnhovercolor a{
+      color:#bfbfbf;
+  }
+  li.del_btnhovercolor a:hover{
+  color:#087ccd;
+  }
 .signup-form h2 {
 color: #636363;
 margin: 0 0 15px;

@@ -1,13 +1,11 @@
 import React from 'react';
 import {Route, BrowserRouter as Router} from 'react-router-dom';
-import {useHistory } from 'react-router-dom'
 import './App.css'
-import ImageSlider from './component/imageSlider';
 import Login from "./component/login";
 import Navbar from "./component/Navbar";          
 import Signup from './component/Signup';
-import Logout from "./component/logout";
-import { SliderData } from './component/sliderData'
+import RaiseQuery from "./component/raiseQuery";
+import AllQueries from "./component/allQueries";
 
 function App() {
 
@@ -23,12 +21,12 @@ function App() {
    <Route path="/signup">
    <Signup/>
    </Route>
-
-   <Route path="/">
-     <ImageSlider slides={SliderData} />
-   </Route>
-   <Route path="/logout">
-     <Logout/>
+    <Route path="/allQueries">
+      <AllQueries/>
+    </Route>
+  
+   <Route path="/raiseQuery">
+     <RaiseQuery/>
    </Route>
    </Router>
    </>

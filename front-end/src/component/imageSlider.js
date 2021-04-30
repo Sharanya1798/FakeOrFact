@@ -17,7 +17,7 @@ const ImageSlider = ({ slides }) => {
   if (!Array.isArray(slides) || slides.length <= 0) {
     return null;
   }
-
+ 
   return (
     <section className='slider'>
       <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
@@ -29,7 +29,7 @@ const ImageSlider = ({ slides }) => {
             key={index}
           >
             {index === current && (
-              <img src={slide.image} alt='travel image' className='image' />
+             <a href = "/raiseQuery" ><img src={slide.image } alt='' className='image'/></a>    
             )}
           </div>
         );

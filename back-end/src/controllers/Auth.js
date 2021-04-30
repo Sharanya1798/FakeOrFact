@@ -1,9 +1,12 @@
 let User = require("../models/signupSchema");
+let Queries = require("../models/querySchema");
 var jwt = require("jsonwebtoken");
+//var jwt_decode = require("jwt_decode")
 const bcrypt = require("bcrypt");
 const Validator = require("validator");
 const isEmpty = require("is-empty");
 let config = require("../../config");
+
 
 exports.singin = (req,res) =>{
     const {userName,password} = req.body;
@@ -15,16 +18,24 @@ exports.singin = (req,res) =>{
         if(foundUser){
             bcrypt.compare(password,foundUser.password,(err,result)=>{
                 if (result){
-                    var token = jwt.sign({id: result._id}, config.secret, {
-                        expiresIn: 86400
-                    });
+                    const payload = {
+                        id: foundUser._id,
+                        name: foundUser.userName
+                      };
+                      var token = jwt.sign(
+                        {userName : foundUser.userName},
+                        config.secret,
+                        {
+                          expiresIn: 31556926 // 1 year in seconds
+                        }
+                    );
                     res.json({new_token: token});
                     //res.status(200).send({foundUser, auth: true, token: token});
                 }else if(err){
                     console.log(err);
                     res.status(400).send({msg : "error found"})
                 }else{
-                    res.status(400).send({msg: "invalid username / password", auth: false, token: null});
+                    res.status(400).send({msg: "invalid password", auth: false, token: null});
                 }
             })
         } else {
@@ -60,4 +71,29 @@ exports.signup = (req,res) =>{
             }
         });
     }
+}
+
+exports.raiseQuery = (req, res) => {
+    const email= req.body.email;
+    const queryName= req.body.queryName;
+    const queryDec = req.body.queryDescription;
+    const userName = req.body.userName;
+    if(isEmpty(email) || isEmpty(queryName) || isEmpty(queryDec)) {
+        res.status(400).send({msg : "Required fields are empty !!"})
+    } else if(!Validator.isEmail(email)) {
+        res.status(400).send({msg : "Email is invalid"})
+    } else {
+        const newQuery = new Queries({
+            userName,email,queryName,queryDec
+        });
+        newQuery.save().then(user => res.json(user)).catch(err => res.send("Some error occured"));
+    }
+}
+
+exports.allQueries = (req, res) => {
+    Queries.find().then(list => {
+        console.log("came here")
+        res.json({queries: list});
+    });
+    
 }

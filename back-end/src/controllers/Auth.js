@@ -92,8 +92,13 @@ exports.raiseQuery = (req, res) => {
 
 exports.allQueries = (req, res) => {
     Queries.find().then(list => {
-        console.log("came here")
         res.json({queries: list});
-    });
-    
+    });   
+}
+
+exports.myQueries = (req, res) => {
+    const userName = req.body.userName;
+    Queries.find({ "userName": userName }).then(list => {
+        res.json({queries: list});
+    }); 
 }

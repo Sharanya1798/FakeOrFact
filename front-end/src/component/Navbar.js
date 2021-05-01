@@ -28,7 +28,7 @@ const Navbar = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/raiseQuery">
+            <a className="nav-link" href="/myQueries">
                 My_Queries
             </a>
           </li>

@@ -6,6 +6,7 @@ import Navbar from "./component/Navbar";
 import Signup from './component/Signup';
 import RaiseQuery from "./component/raiseQuery";
 import AllQueries from "./component/allQueries";
+import MyQueries from "./component/myQueries";
 
 function App() {
 
@@ -27,6 +28,9 @@ function App() {
   
    <Route path="/raiseQuery">
      <RaiseQuery/>
+   </Route>
+   <Route path="/myQueries">
+    <MyQueries/>
    </Route>
    </Router>
    </>

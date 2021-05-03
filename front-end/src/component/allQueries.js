@@ -1,5 +1,6 @@
 import React from 'react'
 class allQueries extends React.Component {
+  
   state = {
     posts: []
   };
@@ -23,7 +24,7 @@ class allQueries extends React.Component {
         response.json()
                 .then(responseJson => {
                 const queries  = responseJson.queries;
-                console.log(queries);
+                //console.log(queries);
                 this.setState({ posts: queries })
                 console.log("Data has been received!")
                 })
@@ -31,6 +32,12 @@ class allQueries extends React.Component {
       .catch(() => {
         alert("Error retrieving data !!");
       })
+  }
+
+  gotoComments = ( post ) => { 
+    localStorage.setItem("currentPost", post);
+    console.log(localStorage.getItem("currentPost"))
+    window.location = "/postComments";
   }
 
   displayPosts = (posts) => {
@@ -41,10 +48,12 @@ class allQueries extends React.Component {
           <div className="query-form">
           <li class="discussincard box-border">
               <h4 class="bigdarkgrayfont ">
-                  <a class="bigdarkgrayfont discussionforum_font Forum_Ques" href="/Talent/ReactJS/Forum/173289-react-wizard">{post.queryName}</a>
+                  <a class="bigdarkgrayfont discussionforum_font Forum_Ques" href="#">{post.queryName}</a>
               </h4>
               <p class="mediumdarkgray">{post.queryDec}</p>
               <div class="discussionforum_color talentforum_username ">Contact:  {post.email}</div>
+              <button value={post._id} onClick={e => this.gotoComments(e.target.value)}>View Discussion Thread</button>
+               {/* <button type="submit" onClick={ this.gotoComments(post) } className="btn btn-primary btn-lg">View Discussions</button> */}
           </li>
           </div>
           </div>

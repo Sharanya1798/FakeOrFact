@@ -11,8 +11,8 @@ class myQueries extends React.Component {
 
   getPosts = () => {
     const decoded = jwt_decode(localStorage.getItem('my_token'));
-    const userName = decoded.userName; 
-    const data = { "userName": userName }
+    const user_ID = decoded.id; 
+    const data = { "user_ID": user_ID }
     const requestOptions = {
       method: 'POST',
       mode: 'cors',
@@ -45,7 +45,7 @@ class myQueries extends React.Component {
           <div className="query-form">
           <li class="discussincard box-border">
               <h4 class="bigdarkgrayfont ">
-                  <a class="bigdarkgrayfont discussionforum_font Forum_Ques" href="/Talent/ReactJS/Forum/173289-react-wizard">{post.queryName}</a>
+                  <a class="bigdarkgrayfont discussionforum_font Forum_Ques" href="/postComments">{post.queryName}</a>
               </h4>
               <p class="mediumdarkgray">{post.queryDec}</p>
               <div class="discussionforum_color talentforum_username ">Contact:  {post.email}</div>

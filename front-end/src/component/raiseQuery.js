@@ -12,9 +12,10 @@ function RaiseQuery() {
     const onQuerySubmit = (e)=>{
         e.preventDefault()
         const decoded = jwt_decode(localStorage.getItem('my_token'));
-        const userName = decoded.userName;
+        console.log(decoded);
+        const user_ID = decoded.id;
         //console.log(decoded.userName);
-        const data = {email,queryName, queryDescription, userName}
+        const data = {email,queryName, queryDescription, user_ID}
         const requestOptions = {
             method: 'POST',
             mode: 'cors',
@@ -38,7 +39,6 @@ function RaiseQuery() {
                 history.push("/")
                 console.log("query submitted successfully")
                 })
-
           })
           .then(data => console.log(data));        
     }

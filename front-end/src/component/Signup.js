@@ -32,7 +32,7 @@ function Signup() {
                     }
         
                     console.log("signup successful")
-                    history.push("/")
+                    history.push("/login")
         
                     return response.json()
                   })

@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs")
 const querySchema = new mongoose.Schema({
-    userName:{
-        type: String,
+    user_ID:{
+        type: mongoose.Schema.Types.ObjectId,
         required:true,
         trim:true
     },

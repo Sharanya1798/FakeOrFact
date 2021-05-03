@@ -23,12 +23,13 @@ exports.singin = (req,res) =>{
                         name: foundUser.userName
                       };
                       var token = jwt.sign(
-                        {userName : foundUser.userName},
+                        {id : foundUser._id},
                         config.secret,
                         {
                           expiresIn: 31556926 // 1 year in seconds
                         }
                     );
+                    res.header('auth-header',token);
                     res.json({new_token: token});
                     //res.status(200).send({foundUser, auth: true, token: token});
                 }else if(err){
@@ -77,14 +78,14 @@ exports.raiseQuery = (req, res) => {
     const email= req.body.email;
     const queryName= req.body.queryName;
     const queryDec = req.body.queryDescription;
-    const userName = req.body.userName;
+    const user_ID = req.body.user_ID;
     if(isEmpty(email) || isEmpty(queryName) || isEmpty(queryDec)) {
         res.status(400).send({msg : "Required fields are empty !!"})
     } else if(!Validator.isEmail(email)) {
         res.status(400).send({msg : "Email is invalid"})
     } else {
         const newQuery = new Queries({
-            userName,email,queryName,queryDec
+            user_ID,email,queryName,queryDec
         });
         newQuery.save().then(user => res.json(user)).catch(err => res.send("Some error occured"));
     }
@@ -97,8 +98,8 @@ exports.allQueries = (req, res) => {
 }
 
 exports.myQueries = (req, res) => {
-    const userName = req.body.userName;
-    Queries.find({ "userName": userName }).then(list => {
+    const user_ID = req.body.user_ID;
+    Queries.find({ "user_ID": user_ID }).then(list => {
         res.json({queries: list});
     }); 
 }

@@ -7,6 +7,7 @@ import Signup from './component/Signup';
 import RaiseQuery from "./component/raiseQuery";
 import AllQueries from "./component/allQueries";
 import MyQueries from "./component/myQueries";
+import postComments from "./component/postComments";
 
 function App() {
 
@@ -15,24 +16,13 @@ function App() {
    <h2 className="text-center">FakeOrFact</h2>
 <Router>
 <Navbar/>
-   <Route path="/login">
-   <Login/>
-   </Route>
-
-   <Route path="/signup">
-   <Signup/>
-   </Route>
-    <Route path="/allQueries">
-      <AllQueries/>
-    </Route>
-  
-   <Route path="/raiseQuery">
-     <RaiseQuery/>
-   </Route>
-   <Route path="/myQueries">
-    <MyQueries/>
-   </Route>
-   </Router>
+   <Route path="/login"><Login/></Route>
+   <Route path="/signup"><Signup/></Route>
+   <Route path="/allQueries"><AllQueries/></Route>
+   <Route path="/raiseQuery"><RaiseQuery/></Route>
+   <Route path="/myQueries"><MyQueries/></Route>
+   <Route path="/postComments" exact component={postComments}/>
+</Router>
    </>
   )
 }

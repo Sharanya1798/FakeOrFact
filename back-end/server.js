@@ -8,7 +8,6 @@ const expressWs = require('express-ws');
 
 const Authentication = require("./src/Routes/Authentication");
 const commentsRouter = require('./src/Routes/comments');
-const cacheRouter = require('./src/Routes/cache');
 
 const app = express();
 
@@ -41,7 +40,6 @@ app.use(function (req, res, next) {
     })
 app.use("/",Authentication);
 app.use('/api/comments',commentsRouter);
-app.use('/api/cache', cacheRouter);
 
 app.ws('/api/comment', (ws, req) => {
 

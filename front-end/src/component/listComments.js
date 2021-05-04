@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import cogoToast from 'cogo-toast';
 import moment from 'moment';
+import jwt_decode from "jwt-decode";
+
 import likeImage from '../images/like.png'
 import likedImage from '../images/liked.png'
 import dislikedImage from '../images/disliked.png'
@@ -28,25 +30,9 @@ class Comment extends Component {
         console.log('not logged in');
       }
       else{
-        const requestOptions = {
-            method: 'POST',
-            mode: 'cors',
-            headers: { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-              "auth-header": jwt
-             },
-            body: JSON.stringify({'commentid' : this.props.comment._id})
-          };
-          fetch('http://localhost:3000/api/cache/updownstate', requestOptions)
-            .then(response => {
-                response.json()
-                .then(responseJson => {
-                    console.log(responseJson);
-                    this.setState(responseJson)
-                })
-            })
-            .catch(err => console.log(err)); 
+        const decoded = jwt_decode(localStorage.getItem('my_token'));
+        console.log(decoded);
+        this.state.publisher = decoded.id;
 
         // axios.post('http://localhost:5000/api/cache/updownstate', {'commentid' : this.props.comment._id }, headers)
         //   .then(resp =>{ this.setState(resp.data)})
@@ -108,24 +94,7 @@ class Comment extends Component {
           };
           fetch('http://localhost:3000/api/comments/update', requestOptions)
             .then(response => {
-                const requestOptions1 = {
-                    method: 'PUT',
-                    mode: 'cors',
-                    headers: { 
-                      'Content-Type': 'application/json',
-                      'Accept': 'application/json',
-                      "auth-header": jwt
-                     },
-                    body: JSON.stringify({'commentid' : json.data.comment._id, upvoted : (this.state.upvoted ? 1 : 0) })
-                  };
-                fetch('http://localhost:3000/api/cache/updownstate', requestOptions1)
-                .then(resp => {
-                    resp.json()
-                    .then(respJson => {
-                        this.setState(respJson)
-                    })
-                })
-                .catch(err => console.log(err)); 
+                console.log(response);
             })
             .catch(err => console.log(err)); 
         // sync with mongo
@@ -221,17 +190,19 @@ export default class ListComments extends Component {
   } 
 
   commentList = (comments) => {  
-    if(!comments.length) return null;
     //console.log(comments)
     return comments.map(currentcomment => {
       return <Comment comment={currentcomment} socket={this.props.actions} key={currentcomment._id}/>;
     });
   }
   render() {
+    const comments = this.state.comments;
+    if(!comments.length) return <div><h4>No discussions yet!! Start by adding your Opinion</h4></div>;
+
     return (
       <div className="d-flex flex-column">
       <h4>Discussions</h4>
-        { this.commentList(this.state.comments) }
+        { this.commentList(comments) }
      </div>
     );
   }

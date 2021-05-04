@@ -57,11 +57,14 @@ class myQueries extends React.Component {
 
   render() {
     //console.log('state: ', this.state);
+    const posts = this.state.posts;
+    if(!posts.length) return <div><h2>No posts yet!! Start by adding a new post</h2></div>;
+
     return(
         <div>
           <div className="container">
               <ul class="list-unstyled">
-                    {this.displayPosts(this.state.posts)}
+                    {this.displayPosts(posts)}
               </ul>
               </div>
         </div>

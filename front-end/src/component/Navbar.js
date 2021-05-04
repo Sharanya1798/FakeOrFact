@@ -24,12 +24,12 @@ const Navbar = () => {
       <ul class="nav navbar-nav mob_nav hidden-xs">
           <li className="nav-item">
             <a className="nav-link" href="/raiseQuery">
-                Raise a New Query
+                Add New Post
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="/myQueries">
-                My_Queries
+                My Posts
             </a>
           </li>
       </ul>

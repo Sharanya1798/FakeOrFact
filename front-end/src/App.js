@@ -15,7 +15,7 @@ function App() {
    <>
    <h2 className="text-center">FakeOrFact</h2>
 <Router>
-<Navbar/>
+   <Route path="/"><AllQueries/></Route>
    <Route path="/login"><Login/></Route>
    <Route path="/signup"><Signup/></Route>
    <Route path="/allQueries"><AllQueries/></Route>

@@ -1,4 +1,6 @@
 import React from 'react'
+import Navbar from "./Navbar";          
+
 class allQueries extends React.Component {
   
   state = {
@@ -63,13 +65,16 @@ class allQueries extends React.Component {
   render() {
     //console.log('state: ', this.state);
     return(
+      <>
+      <Navbar/>
         <div>
           <div className="container">
               <ul class="list-unstyled">
                     {this.displayPosts(this.state.posts)}
               </ul>
-              </div>
+          </div>
         </div>
+        </>
     );
   }
 }

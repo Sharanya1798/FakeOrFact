@@ -19,6 +19,7 @@ function Login() {
              },
             body: JSON.stringify(data)
           };
+        //   process.env.NODE_ENV
           fetch('http://localhost:3000/signin', requestOptions)
           .then(response => {
             
@@ -30,7 +31,7 @@ function Login() {
             }
             response.json()
                 .then(responseJson => {
-                history.push("/")
+                history.push("/allQueries")
                 const { token } = responseJson.new_token;
                 console.log(token)
                 localStorage.setItem('my_token', responseJson.new_token);

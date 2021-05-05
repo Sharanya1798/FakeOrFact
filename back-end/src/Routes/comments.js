@@ -6,7 +6,7 @@ router.get('/getComments' , (req,res) => {
     const post_ID = req.header('auth-header');
     Comment.find({"query": post_ID})
         .populate('user')
-        .sort({'createdAt':-1})
+        .sort({'upvotes': 1})
         .then(comments => res.json(comments))
         .catch(err => res.status(400).json('Error' + err));
 });

@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const logoutUser = () => {
     localStorage.removeItem('my_token');
-    history.push("/")
+    history.push("/allQueries")
   };
 
   if(token) {

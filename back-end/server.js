@@ -25,7 +25,7 @@ app.use(express.json());
 const wsInstance = expressWs(app);
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect("mongodb+srv://Sharanya:Sharna&ashu798@fakeorfact.9ynja.mongodb.net/Major_project?retryWrites=true&w=majority",{ useNewUrlParser: true, useCreateIndex: true,useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://Sharanya:Sharna&ashu798@fakeorfact.9ynja.mongodb.net/Major_project?retryWrites=true&w=majority",{ useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false })
 .then(()=>{
     console.log("Database is connected");
 })
@@ -44,7 +44,7 @@ app.use('/api/comments',commentsRouter);
 app.ws('/api/comment', (ws, req) => {
 
     ws.on('message', function incoming(message) {
-      console.log(message) ;
+     // console.log(message) ;
       ws.broadcast(message);
     });
 

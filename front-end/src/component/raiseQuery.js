@@ -14,9 +14,7 @@ function RaiseQuery() {
     const onQuerySubmit = (e)=>{
         e.preventDefault()
         const decoded = jwt_decode(localStorage.getItem('my_token'));
-        console.log(decoded);
         const user_ID = decoded.id;
-        //console.log(decoded.userName);
         const data = {email,queryName, queryDescription, user_ID}
         const requestOptions = {
             method: 'POST',

@@ -1,7 +1,6 @@
 let User = require("../models/signupSchema");
 let Queries = require("../models/querySchema");
 var jwt = require("jsonwebtoken");
-//var jwt_decode = require("jwt_decode")
 const bcrypt = require("bcrypt");
 const Validator = require("validator");
 const isEmpty = require("is-empty");
@@ -31,7 +30,6 @@ exports.singin = (req,res) =>{
                     );
                     res.header('auth-header',token);
                     res.json({new_token: token});
-                    //res.status(200).send({foundUser, auth: true, token: token});
                 }else if(err){
                     console.log(err);
                     res.status(400).send({msg : "error found"})

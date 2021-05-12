@@ -28,9 +28,8 @@ export default class AddComment extends Component {
          content : this.state.content,
      }
       const jwt = localStorage.getItem("my_token");
-      const post_ID = localStorage.getItem("currentPost");
-      console.log("post id: "+post_ID);
-      //const jwt = token1.userName;
+      const post = JSON.parse(localStorage.getItem("currentPost"));
+      const post_ID = post.post_ID;
       if(jwt === null){
         console.log('not logged in');
         const { hide } = cogoToast.warn('Click to login & comment', {
@@ -66,17 +65,7 @@ export default class AddComment extends Component {
             .catch(err => cogoToast.error('Failed adding comment, please try again!', { hideAfter : 5 })
         .then(() => this.setState({content : ''})));
      
-    //   axios.post('http://localhost:3000/api/comments/add', comment, headers)
-    //     .then(res => { 
-    //       const json = { type: 'comment' };
-    //       json.data = res.data;
-    //       console.log(json);
-    //       this.props.actions.send(JSON.stringify(json));
-    //       this.setState({content : ''})
-          
-    //     })
-    //     .catch(err => cogoToast.error('Failed adding comment, please try again!', { hideAfter : 5 })
-    //     .then(() => this.setState({content : ''})));
+    
       }
     }
    

@@ -28,7 +28,6 @@ class myQueries extends React.Component {
         response.json()
                 .then(responseJson => {
                 const queries  = responseJson.queries;
-                console.log(queries);
                 this.setState({ posts: queries })
                 console.log("Data has been received!")
                 })
@@ -57,7 +56,6 @@ class myQueries extends React.Component {
   };
 
   render() {
-    //console.log('state: ', this.state);
     const posts = this.state.posts;
     if(!posts.length) return <div><h2>No posts yet!! Start by adding a new post</h2></div>;
 

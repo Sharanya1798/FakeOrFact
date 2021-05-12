@@ -44,7 +44,6 @@ app.use('/api/comments',commentsRouter);
 app.ws('/api/comment', (ws, req) => {
 
     ws.on('message', function incoming(message) {
-     // console.log(message) ;
       ws.broadcast(message);
     });
 

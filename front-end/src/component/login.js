@@ -32,10 +32,8 @@ function Login() {
                 .then(responseJson => {
                 history.push("/allQueries")
                 const { token } = responseJson.new_token;
-                console.log(token)
                 localStorage.setItem('my_token', responseJson.new_token);
                 const decoded = jwt_decode(localStorage.getItem('my_token'));
-                console.log(decoded);
                 console.log("login successful")
                 })
 

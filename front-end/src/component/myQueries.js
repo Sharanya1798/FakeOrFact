@@ -1,5 +1,6 @@
 import React from 'react'
 import jwt_decode from "jwt-decode";
+import Navbar from './Navbar';
 
 class myQueries extends React.Component {
   state = {
@@ -61,6 +62,8 @@ class myQueries extends React.Component {
     if(!posts.length) return <div><h2>No posts yet!! Start by adding a new post</h2></div>;
 
     return(
+      <>      <Navbar/>
+
         <div>
           <div className="container">
               <ul class="list-unstyled">
@@ -68,6 +71,7 @@ class myQueries extends React.Component {
               </ul>
               </div>
         </div>
+        </>
     );
   }
 }

@@ -1,14 +1,12 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
-import {NavLink, useHistory} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Navbar = () => {
   const token = localStorage.getItem('my_token');
-  const history = useHistory();
 
   const logoutUser = () => {
     localStorage.removeItem('my_token');
-    history.push("/allQueries")
   };
 
   if(token) {

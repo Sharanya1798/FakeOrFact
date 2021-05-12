@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import jwt_decode from "jwt-decode";
+import Navbar from './Navbar';
+import cogoToast from 'cogo-toast';
 
 function RaiseQuery() {
     const [email, setEmail] = useState("");
@@ -36,22 +38,25 @@ function RaiseQuery() {
             }
             response.json()
                 .then(responseJson => {
-                history.push("/")
-                console.log("query submitted successfully")
+                    cogoToast.success('Post created successfully!!', { hideAfter : 3})
+                    history.push("/")
+                    console.log("query submitted successfully")
                 })
           })
           .then(data => console.log(data));        
     }
     if(localStorage.getItem("my_token")){
     return (
+        <>
+        <Navbar/>
         <div className="section">
             <div className="container">
                 <div className="row">
-                    <div className="signup-form">
+                    <div className="query-form">
                         <div className="section-title">
                             <br/>
-                            <h3 className="title">Submit a new Query</h3><hr/>
-                            <p>Please give a suitable Name and Description for the query.</p>
+                            <h3 className="title">Create a New Post</h3><hr/>
+                            <p>Please give a suitable Name and Description for the Post.</p>
                             <div style={{ color: 'red'}} className='text-center mb-2'> {error} </div>
                             <form id="contact-form" 
                                 method="POST">
@@ -62,13 +67,13 @@ function RaiseQuery() {
                                     setEmail(e.target.value)}}/>
                             </div>
                             <div className="form-group">
-                                <input placeholder = "Name the Query"  name="subject" type="text"
+                                <input placeholder = "Name the Post"  name="subject" type="text"
                                   className="form-control" onChange={(e)=> {
                                     setError('')
                                     setQueryName(e.target.value)}}/>
                             </div>
                             <div className="form-group">
-                                <textarea placeholder = "Write description of the query"  name="description" 
+                                <textarea placeholder = "Write description of the New Post"  name="description" 
                                  type="text" className="form-control" rows="3" onChange={(e)=> {
                                     setError('')
                                     setDescription(e.target.value)}}/>
@@ -82,6 +87,7 @@ function RaiseQuery() {
 
             </div>
         </div>
+        </>
     );} else {
         history.push("/login")
     }

@@ -19,7 +19,6 @@ function Login() {
              },
             body: JSON.stringify(data)
           };
-        //   process.env.NODE_ENV
           fetch('http://localhost:3000/signin', requestOptions)
           .then(response => {
             

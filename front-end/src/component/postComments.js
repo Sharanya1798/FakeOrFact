@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListComments from './listComments';
 import AddComment from './addComment';
+import Navbar from './Navbar';
 
 export default class Home extends Component {
 
@@ -26,6 +27,9 @@ export default class Home extends Component {
 
   render() {
     return (
+      <>
+      <Navbar/>
+
       <div className="container">
           <div className="query-form">
         <br/>
@@ -34,6 +38,7 @@ export default class Home extends Component {
         < AddComment { ... this.state  }/>
         </div>
       </div>
+      </>
     );
   }
 }

@@ -24,21 +24,28 @@ class Comment extends Component {
 
     }
     componentDidMount(){
+      //query redis to determine user comments upvote downvote status to set state - could be optimized
       const jwt = localStorage.getItem("my_token");
       if(jwt === null){
         console.log('not logged in');
       }
       else{
         const decoded = jwt_decode(localStorage.getItem('my_token'));
+        console.log(decoded);
         this.state.publisher = decoded.id;
-         
+
+        // axios.post('http://localhost:5000/api/cache/updownstate', {'commentid' : this.props.comment._id }, headers)
+        //   .then(resp =>{ this.setState(resp.data)})
+        //   .catch(err => console.log(err));  
         }    
     }
 
     handleUpvoteDownvote(e){
-     
+      console.log(e.target.name);
+      //console.log(this.props);
       const json = { type: e.target.name };
       json.data = this.props;
+      console.log("this is json "+json);
       const jwt = localStorage.getItem("my_token");
       if(jwt === null){
        const { hide } = cogoToast.warn('Click to login & upvote/downvote.', {
@@ -49,6 +56,9 @@ class Comment extends Component {
       });
       }
       else {
+        console.log("publisher :" + this.state.publisher);
+        console.log("this is json.data.commemt.user._id value : " + json.data.comment.user._id);
+        
         if(this.state.publisher === json.data.comment.user._id){
           cogoToast.error(`You cant ${e.target.name} your own comment!`, { hideAfter : 5 })
         }
@@ -87,7 +97,17 @@ class Comment extends Component {
                 console.log(response);
             })
             .catch(err => console.log(err)); 
-       
+        // sync with mongo
+        // axios.put('http://localhost:5000/api/comments/update', json.data.comment, headers)
+        //   .then(res => { 
+        //     console.log(res);
+        //     //sync wtih redis
+        //     axios.put('http://localhost:5000/api/cache/updownstate', {'commentid' : json.data.comment._id, upvoted : (this.state.upvoted ? 1 : 0) }, headers)
+        //     .then(resp => this.setState(resp.data))
+        //     .catch(err => console.log(err));  
+            
+        //   })
+        //   .catch(err => console.log(err));
         }
       }
     }
@@ -95,6 +115,7 @@ class Comment extends Component {
     render() {
       let likeimgurl = this.state.upvoted ? likedImage : likeImage;
       let dislikeimgurl = this.state.downvoted ? dislikedImage : dislikeImage;
+      //console.log(process.env.PUBLIC_URL);
 
       return (
         <div className="card">
@@ -129,15 +150,15 @@ export default class ListComments extends Component {
   }
 
   componentDidMount(){
-    const post = JSON.parse(localStorage.getItem("currentPost"));
     const requestOptions = {
         method: 'GET',
         mode: 'cors',
         headers: { 
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          "auth-header": post.post_ID
+          "auth-header": localStorage.getItem("currentPost")
          },
+       // body: JSON.stringify({'postId': localStorage.getItem("currentPost") })
       };
     fetch('http://localhost:3000/api/comments/getComments', requestOptions)
     .then(resp => {
@@ -147,6 +168,10 @@ export default class ListComments extends Component {
         })
     })
     .catch(err => console.log(err));
+
+    // axios.get('http://localhost:5000/api/comments/')
+    //   .then(resp => this.setState({ comments : resp.data }))
+    //   .catch(err => console.log(err));
   }
 
   componentWillReceiveProps(nextProps){
@@ -165,12 +190,12 @@ export default class ListComments extends Component {
   } 
 
   commentList = (comments) => {  
+    //console.log(comments)
     return comments.map(currentcomment => {
       return <Comment comment={currentcomment} socket={this.props.actions} key={currentcomment._id}/>;
     });
   }
   render() {
-
     const comments = this.state.comments;
     if(!comments.length) return <div><h4>No discussions yet!! Start by adding your Opinion</h4></div>;
 

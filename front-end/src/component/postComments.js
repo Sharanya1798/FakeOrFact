@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ListComments from './listComments';
 import AddComment from './addComment';
-import Navbar from './Navbar';
 
 export default class Home extends Component {
 
@@ -26,19 +25,7 @@ export default class Home extends Component {
   }
 
   render() {
-    const post = JSON.parse(localStorage.getItem("currentPost"));
     return (
-      <>
-      <Navbar/>
-
-          <div className="query-form">
-              <h5 class="bigdarkgrayfont ">
-                  <a class="bigdarkgrayfont discussionforum_font Forum_Ques" >{post.post_Name}</a>
-              </h5>
-              <p class="mediumdarkgray">{post.post_desc}</p>
-              <div class="discussionforum_color talentforum_username ">Contact:  {post.email}</div>
-          </div>
-
       <div className="container">
           <div className="query-form">
         <br/>
@@ -47,7 +34,6 @@ export default class Home extends Component {
         < AddComment { ... this.state  }/>
         </div>
       </div>
-      </>
     );
   }
 }

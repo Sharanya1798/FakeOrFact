@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from "./Navbar";          
+import ScrollToTop from "./ScrollToTop";
 
 class allQueries extends React.Component {
   
@@ -26,6 +27,7 @@ class allQueries extends React.Component {
         response.json()
                 .then(responseJson => {
                 const queries  = responseJson.queries;
+                //console.log(queries);
                 this.setState({ posts: queries })
                 console.log("Data has been received!")
                 })
@@ -36,8 +38,8 @@ class allQueries extends React.Component {
   }
 
   gotoComments = ( post ) => { 
-    const currentPostDetails = {post_ID: post._id, post_Name: post.queryName, post_desc: post.queryDec, email: post.email}
-    localStorage.setItem("currentPost", JSON.stringify(currentPostDetails));
+    localStorage.setItem("currentPost", post);
+    console.log(localStorage.getItem("currentPost"))
     window.location = "/postComments";
   }
 
@@ -46,14 +48,14 @@ class allQueries extends React.Component {
     
     return posts.map((post, index) => (
           <div key={index}>
-          <div className="query-form">
+          <div className="query-form" >
           <li class="discussincard box-border">
               <h4 class="bigdarkgrayfont ">
-                  <a class="bigdarkgrayfont discussionforum_font Forum_Ques">{post.queryName}</a>
+                  <a class="bigdarkgrayfont discussionforum_font Forum_Ques" href="#">{post.queryName}</a>
               </h4>
               <p class="mediumdarkgray">{post.queryDec}</p>
               <div class="discussionforum_color talentforum_username ">Contact:  {post.email}</div>
-              <button value={post._id} onClick={e => this.gotoComments(post)}>View Discussion Thread</button>
+              <button value={post._id} onClick={e => this.gotoComments(e.target.value)}>View Discussion Thread</button>
                {/* <button type="submit" onClick={ this.gotoComments(post) } className="btn btn-primary btn-lg">View Discussions</button> */}
           </li>
           </div>
@@ -62,6 +64,8 @@ class allQueries extends React.Component {
   };
 
   render() {
+    //console.log('state: ', this.state);
+    const { is_visible } = this.state;
     return(
       <>
       <Navbar/>
@@ -72,6 +76,8 @@ class allQueries extends React.Component {
               </ul>
           </div>
         </div>
+        <ScrollToTop/>
+        
         </>
     );
   }

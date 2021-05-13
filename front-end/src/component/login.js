@@ -43,46 +43,30 @@ function Login() {
 
     return (
         <>
-       <div className="login-form">
-    <form action="/examples/actions/confirmation.php" method="post">
-    <p className="text-center text-muted small">Don't have an account? <NavLink to="/signup">Sign up here!</NavLink></p>
-        <h2 className="text-center">Log in</h2>   
-        <div style={{ color: 'red'}} className='text-center mb-2'>
-            {error}
-        </div>
-        <div className="form-group">
-        	<div className="input-group">
-                <div className="input-group-prepend">
-                    <span className="input-group-text">
-                        <span className="fa fa-user"></span>
-                    </span>                    
+      <div className="bodyy">
+            <form class="box" action="/examples/actions/confirmation.php" method="post">
+                <p className="text-center text-muted small">Don't have an account? <NavLink to="/signup">Sign up here!</NavLink></p>
+                <h1>Login</h1>
+                <div style={{ color: 'red'}} className='text-center mb-2'>
+                    {error}
                 </div>
                 <input type="text" onChange={(e)=> {
                     setError('')
                     setuserName(e.target.value)}}
-                     className="form-control" name="username" placeholder="Username" required="required"/>				
-            </div>
-        </div>
-		<div className="form-group">
-            <div className="input-group">
-                <div className="input-group-prepend">
-                    <span className="input-group-text">
-                        <i className="fa fa-lock"></i>
-                    </span>                    
-                </div>
+                     className="form-control" name="username" placeholder="Username" required="required"/>	
+
                 <input type="password" onChange={(e)=> {
                     setError('')
-                    setPassword(e.target.value)}} className="form-control" name="password" placeholder="Password" required="required"/>				
-            </div>
-        </div>        
-        <div className="form-group">
-            <button type="submit" onClick ={onLogin} className="btn btn-primary login-btn btn-block">Log in</button>
+                    setPassword(e.target.value)}} className="form-control" name="password" placeholder="Password" required="required"/>
+
+                <input type="submit" name="" onClick ={onLogin} value="Login" ></input>
+                
+                <div >
+                        <NavLink to="#" className="float-right" >Forgot Password?</NavLink>
+                </div>
+
+            </form>
         </div>
-        <div className="clearfix">
-            <NavLink to="#" className="float-right">Forgot Password?</NavLink>
-        </div>
-    </form>
-</div>
         </>
     )
 }

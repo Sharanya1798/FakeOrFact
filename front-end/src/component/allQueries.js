@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from "./Navbar";          
+import ScrollToTop from "./ScrollToTop";
 
 class allQueries extends React.Component {
   
@@ -62,6 +63,7 @@ class allQueries extends React.Component {
   };
 
   render() {
+    const { is_visible } = this.state;
     return(
       <>
       <Navbar/>
@@ -72,6 +74,7 @@ class allQueries extends React.Component {
               </ul>
           </div>
         </div>
+        <ScrollToTop/>
         </>
     );
   }

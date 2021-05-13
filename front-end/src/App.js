@@ -12,7 +12,7 @@ function App() {
 
   return (
    <>
-   <h2 className="text-center">FakeOrFact</h2>
+   <h2 className="text-center1">FakeOrFact</h2>
    <br/>
 <Router>
 <Route exact path="/">

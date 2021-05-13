@@ -1,5 +1,6 @@
 import React , { useState } from 'react'
 import { NavLink ,useHistory} from 'react-router-dom'
+import Navbar from './Navbar';
 
 function Signup() {
         const [ userName, setUname ] = useState('')
@@ -40,9 +41,12 @@ function Signup() {
 
                 }
     return (
-        <>
-            <div className="signup-form">
-                <form action="/examples/actions/confirmation.php" method="post" />
+        <>      
+                <Navbar/>
+                <div className="bodyy">
+                
+                    <div className="signup-form">
+                <form action="/examples/actions/confirmation.php" method="post" >
                 <div className="text-center">Already have an account? <NavLink to="/login">Login here</NavLink></div>
                 <h2>Sign Up</h2>
                 <hr />
@@ -94,8 +98,11 @@ function Signup() {
                 <div className="form-group">
                     <button type="submit" onClick={ onRegister } className="btn btn-primary btn-lg">Sign Up</button>
                 </div>
+                </form>
             </div>
-
+            
+            </div>
+            
         </>
     )
 }

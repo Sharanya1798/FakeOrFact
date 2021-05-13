@@ -2,6 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import {NavLink} from "react-router-dom";
 
+
 const Navbar = () => {
   const token = localStorage.getItem('my_token');
 
@@ -67,6 +68,7 @@ const Navbar = () => {
       <li className="nav-item">
         <NavLink className="nav-link" to="/Signup">Signup</NavLink>
       </li>
+     
     </ul>
    
   </div>

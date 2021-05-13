@@ -3,12 +3,14 @@
   background-color: #ffff !important;
 }
 .bg-blue {
-  background-color: cadetblue !important;
+  background-color: snow;
+  position: fixed;
 }
 body {
 color: #fff;
-background: #63738a;
+background: #34495e;
 font-family: 'Roboto', sans-serif;
+
 }
 .form-control {
 height: 40px;
@@ -33,6 +35,8 @@ margin: 0 auto;
 font-size: 15px;
 padding:20px; 
 border-bottom:1px solid #636363;
+background-color: silver;
+margin-top: 20px;
 }
 .discussionforum_font {
   font-weight:bold;
@@ -41,6 +45,7 @@ border-bottom:1px solid #636363;
   .discussionforum_color {
       color: #636363;
       margin:0 2px;
+
   }
 
   ul.lightgrayfont li a.talentforum_username {
@@ -332,3 +337,149 @@ border: none!important;
 .carousel-indicators li.active {		
 background: #888!important;		
 }
+
+/* ----------------------------Login CSS --------------------------*/
+
+.bodyy{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #34495e;
+}
+
+.box{
+  width: 400px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #191919;
+  text-align: center;
+}
+.box h1{
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.box input[type = "text"],.box input[type = "password"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+.box input[type = "text"]:focus,.box input[type = "password"]:focus{
+  width: 280px;
+  border-color: #2ecc71;
+}
+.box input[type = "submit"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.box input[type = "submit"]:hover{
+  background: #2ecc71;
+}
+
+
+.text-center2 {
+  
+  color: whitesmoke;
+}
+
+.text-center1 {
+  text-align: center !important;
+  color: whitesmoke;
+}
+
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  animation: fadeIn 700ms ease-in-out 1s both;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*link css*/
+.hola {
+  color: black;
+  text-decoration: $link-decoration;
+  background-color: transparent; // Remove the gray background on active links in IE 10.
+
+  @include hover() {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+}
+
+/*For search box updation*/
+
+.query-form1 {
+  width: 902px;
+margin: 0 auto;
+font-size: 15px;
+padding:20px; 
+border-bottom:1px solid #636363;
+background-color: silver;
+margin-top: 20px;
+margin-left: 101px;
+}
+
+/*Button CSS*/
+.btn1 {
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn1-primary {
+  color: #fff;
+  background-color: black;
+  border-color: black;
+}
+
+.btn1-lg, .btn1-group-lg > .btn1 {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  border-radius: 0.3rem;
+}
+

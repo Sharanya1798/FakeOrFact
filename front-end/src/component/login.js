@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { NavLink,useHistory } from 'react-router-dom'
-import jwt_decode from "jwt-decode";
 function Login() {
     const [userName,setuserName] = useState("");
     const [password,setPassword] = useState("");
@@ -31,9 +30,7 @@ function Login() {
             response.json()
                 .then(responseJson => {
                 history.push("/allQueries")
-                const { token } = responseJson.new_token;
                 localStorage.setItem('my_token', responseJson.new_token);
-                const decoded = jwt_decode(localStorage.getItem('my_token'));
                 console.log("login successful")
                 })
 

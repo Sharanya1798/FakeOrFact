@@ -17,12 +17,8 @@ exports.singin = (req,res) =>{
         if(foundUser){
             bcrypt.compare(password,foundUser.password,(err,result)=>{
                 if (result){
-                    const payload = {
-                        id: foundUser._id,
-                        name: foundUser.userName
-                      };
                       var token = jwt.sign(
-                        {id : foundUser._id},
+                        {id : foundUser._id, role : foundUser.role},
                         config.secret,
                         {
                           expiresIn: 31556926 // 1 year in seconds
@@ -100,4 +96,11 @@ exports.myQueries = (req, res) => {
     Queries.find({ "user_ID": user_ID }).then(list => {
         res.json({queries: list});
     }); 
+}
+
+exports.deletePost = (req, res) => {
+    const post = req.body.post;
+    Queries.findByIdAndDelete({"_id": post._id}).then( docum => {
+        res.status(200).send({msg : "success"})
+    });
 }

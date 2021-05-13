@@ -1,5 +1,6 @@
 import React from 'react'
-import Navbar from "./Navbar";  
+import Navbar from "./Navbar";          
+import ScrollToTop from "./ScrollToTop";
 import jwt_decode from "jwt-decode";
 import cogoToast from 'cogo-toast';
 
@@ -11,7 +12,7 @@ class allQueries extends React.Component {
   };
   componentDidMount = () => {
     this.getPosts();
-  };
+  }
 
   getPosts = () => {
     const data = { "name": "FakeOrFact" }
@@ -44,7 +45,7 @@ class allQueries extends React.Component {
     window.location = "/postComments";
   }
 
-  onDelete = (post) => {
+   onDelete = (post) => {
     const data = { "post": post }
     const requestOptions = {
       method: 'POST',
@@ -80,13 +81,13 @@ class allQueries extends React.Component {
           <div className="query-form">
           <li class="discussincard box-border">
               <h4 class="bigdarkgrayfont ">
-                  <a class="bigdarkgrayfont discussionforum_font Forum_Ques">{post.queryName}</a>
+                  <a class="hola">{post.queryName}</a>
               </h4>
               <p class="mediumdarkgray">{post.queryDec}</p>
               <div class="discussionforum_color talentforum_username ">Contact:  {post.email}</div>
               <div className="row">
                 <button onClick={e => this.gotoComments(post)}>View Discussion Thread</button>
-                <button type="submit" onClick={ e => this.onDelete(post)} className="btn btn-primary btn-lg">Remove Post</button>
+                <button type="submit" onClick={ e => this.onDelete(post)} className="btn1 btn1-primary btn1-lg">Remove Post</button>
               </div>
           </li>
           </div>
@@ -100,7 +101,7 @@ class allQueries extends React.Component {
           <div className="query-form">
           <li class="discussincard box-border">
               <h4 class="bigdarkgrayfont ">
-                  <a class="bigdarkgrayfont discussionforum_font Forum_Ques">{post.queryName}</a>
+                  <a class="hola">{post.queryName}</a>
               </h4>
               <p class="mediumdarkgray">{post.queryDec}</p>
               <div class="discussionforum_color talentforum_username ">Contact:  {post.email}</div>
@@ -116,24 +117,26 @@ class allQueries extends React.Component {
   } 
 
   render() {
-      let filteredPosts = this.state.posts.filter(
-        (post) => {
-              return post.queryName.toLowerCase().indexOf(
-                this.state.search.toLowerCase()) != -1 ;
-        }
-      );
+    const { is_visible } = this.state;
+    let filteredPosts = this.state.posts.filter(
+      (post) => {
+            return post.queryName.toLowerCase().indexOf(
+              this.state.search.toLowerCase()) != -1 ;
+      }
+    );
     return(
       <>
       <Navbar/>
-        <div>
+      <div>
           <div className="container">
             <br/>
-              <input className="query-form" type="text" value = {this.state.search} onChange={this.updateSearch.bind(this)} placeholder="Search for a post" ></input>
+              <input className="query-form1" type="text" value = {this.state.search} onChange={this.updateSearch.bind(this)} placeholder="Search for a post" ></input>
               <ul class="list-unstyled">
                     {this.displayPosts(filteredPosts)}
               </ul>
           </div>
         </div>
+        <ScrollToTop/>
         </>
     );
   }

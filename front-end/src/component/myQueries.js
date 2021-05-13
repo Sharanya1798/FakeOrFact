@@ -1,6 +1,7 @@
 import React from 'react'
 import jwt_decode from "jwt-decode";
 import Navbar from './Navbar';
+import ScrollToTop from "./ScrollToTop";
 
 class myQueries extends React.Component {
   state = {
@@ -45,7 +46,7 @@ class myQueries extends React.Component {
           <div className="query-form">
           <li class="discussincard box-border">
               <h4 class="bigdarkgrayfont ">
-                  <a class="bigdarkgrayfont discussionforum_font Forum_Ques" href="/postComments">{post.queryName}</a>
+                  <a class="hola" href="/postComments">{post.queryName}</a>
               </h4>
               <p class="mediumdarkgray">{post.queryDec}</p>
               <div class="discussionforum_color talentforum_username ">Contact:  {post.email}</div>
@@ -57,7 +58,8 @@ class myQueries extends React.Component {
 
   render() {
     const posts = this.state.posts;
-    if(!posts.length) return <div><h2>No posts yet!! Start by adding a new post</h2></div>;
+    const { is_visible } = this.state;
+    if(!posts.length) return (<> <Navbar/><div><h2 className="text-center2">No posts yet!! Start by adding a new post</h2></div> </>);
 
     return(
       <>      <Navbar/>
@@ -69,6 +71,7 @@ class myQueries extends React.Component {
               </ul>
               </div>
         </div>
+        <ScrollToTop/>
         </>
     );
   }

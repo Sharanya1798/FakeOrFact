@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const Validator = require("validator");
 const isEmpty = require("is-empty");
 let config = require("../../config");
+const logger = require("../../logger/loggerConfig");
 
 
 exports.singin = (req,res) =>{
@@ -26,15 +27,20 @@ exports.singin = (req,res) =>{
                     );
                     res.header('auth-header',token);
                     res.json({new_token: token});
+                    logger.info("message from winston : signed in successfully for user -->",{ message: foundUser.userName } );
                 }else if(err){
                     console.log(err);
                     res.status(400).send({msg : "error found"})
+                    logger.error("some error found");
                 }else{
                     res.status(400).send({msg: "invalid password", auth: false, token: null});
+                    logger.error("Invalid password for--> ", {message: foundUser.userName});
                 }
             })
         } else {
             res.status(400).send({msg: "Username not found"});
+            logger.error("message from winston : Username not found for", {message: userName});
+
         }
     })}
 }
@@ -45,16 +51,21 @@ exports.signup = (req,res) =>{
     const password= req.body.password;
     const password2 = req.body.password2;
     if(isEmpty(userName) || isEmpty(email) || isEmpty(password) || isEmpty(password2)) {
+        logger.error("message from winston : Required fields are empty" );
         res.status(400).send({msg : "Required fields are empty !!"})
     } else if(!Validator.isEmail(email)) {
+        logger.error("message from winston : Email is Invalid" );
         res.status(400).send({msg : "Email is invalid"})
     } else if(!Validator.isLength(password, { min: 6, max: 30 })){
+        logger.error("message from winston : Password must be atleast 6 characters" );
         res.status(400).send({msg : "Password must be atleast 6 characters"})
     } else if(!Validator.equals(password, password2)) {
+        logger.error("message from winston : Both Passwords must match" );
         res.status(400).send({msg : "Both Passwords must match"})
     } else {
         User.findOne({ userName: userName }).then(user => {
             if (user) {
+                logger.error("message from winston : UserName already exists, try other" );
                 return res.status(400).send({ msg: "UserName already exists, try other" });
             } else {
                 bcrypt.hash(password,10,(err,hash)=>{
@@ -74,19 +85,27 @@ exports.raiseQuery = (req, res) => {
     const queryDec = req.body.queryDescription;
     const user_ID = req.body.user_ID;
     if(isEmpty(email) || isEmpty(queryName) || isEmpty(queryDec)) {
+        logger.error("message from winston : Required fields are empty !!" );
         res.status(400).send({msg : "Required fields are empty !!"})
     } else if(!Validator.isEmail(email)) {
+        logger.error("message from winston : Email is invalid !!" );
         res.status(400).send({msg : "Email is invalid"})
     } else {
         const newQuery = new Queries({
             user_ID,email,queryName,queryDec
         });
-        newQuery.save().then(user => res.json(user)).catch(err => res.send("Some error occured"));
+        newQuery.save().then(user => {
+            logger.info("message from winston : post submitted successfully !!" );
+            res.json(user)
+        }).catch(err => {
+            logger.error("message from winston : Some error occured" );
+            res.send("Some error occured")});
     }
 }
 
 exports.allQueries = (req, res) => {
     Queries.find().then(list => {
+        logger.info("message from winston : Posts data retrieved successfully!!" );
         res.json({queries: list});
     });   
 }
@@ -94,6 +113,7 @@ exports.allQueries = (req, res) => {
 exports.myQueries = (req, res) => {
     const user_ID = req.body.user_ID;
     Queries.find({ "user_ID": user_ID }).then(list => {
+        logger.info("message from winston : Individual posts retrieved successfully !!" );
         res.json({queries: list});
     }); 
 }
@@ -101,6 +121,7 @@ exports.myQueries = (req, res) => {
 exports.deletePost = (req, res) => {
     const post = req.body.post;
     Queries.findByIdAndDelete({"_id": post._id}).then( docum => {
+        logger.info("message from winston : Post deleted Successfully!!" );
         res.status(200).send({msg : "success"})
     });
 }

@@ -8,8 +8,8 @@ import AllQueries from "./component/allQueries";
 import MyQueries from "./component/myQueries";
 import postComments from "./component/postComments";
 
-function App() {
 
+function App() {
   return (
    <>
    <h2 className="text-center1">FakeOrFact</h2>

@@ -45,7 +45,7 @@ function Login() {
       <div className="bodyy">
             <form class="box" action="/examples/actions/confirmation.php" method="post">
                 <p className="text-center text-muted small">Don't have an account? <NavLink to="/signup">Sign up here!</NavLink></p>
-                <h1>Login</h1>
+                <h1 style={{color: 'snow'}}>Login</h1>
                 <div style={{ color: 'red'}} className='text-center mb-2'>
                     {error}
                 </div>

@@ -79,7 +79,7 @@ class allQueries extends React.Component {
         return posts.map((post, index) => (
           <div key={index}>
           <div className="query-form">
-          <li class="discussincard box-border">
+          <li class="discussincard box-border" >
               <h4 class="bigdarkgrayfont ">
                   <a class="hola">{post.queryName}</a>
               </h4>

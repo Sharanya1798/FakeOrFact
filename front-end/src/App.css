@@ -37,6 +37,8 @@ padding:20px;
 border-bottom:1px solid #636363;
 background-color: silver;
 margin-top: 20px;
+border-radius: 25px;
+border: 2px solid blanchedalmond;
 }
 .discussionforum_font {
   font-weight:bold;
@@ -362,7 +364,7 @@ background: #888!important;
   text-transform: uppercase;
   font-weight: 500;
 }
-.box input[type = "text"],.box input[type = "password"]{
+.box input[type = "text"],.box input[type = "password"],.box input[type = "email"]{
   border:0;
   background: none;
   display: block;
@@ -376,7 +378,7 @@ background: #888!important;
   border-radius: 24px;
   transition: 0.25s;
 }
-.box input[type = "text"]:focus,.box input[type = "password"]:focus{
+.box input[type = "text"]:focus,.box input[type = "password"]:focus,.box input[type = "email"]:focus{
   width: 280px;
   border-color: #2ecc71;
 }
@@ -450,6 +452,8 @@ border-bottom:1px solid #636363;
 background-color: silver;
 margin-top: 20px;
 margin-left: 101px;
+border-radius: 25px;
+border: 2px solid blanchedalmond;
 }
 
 /*Button CSS*/
@@ -482,4 +486,3 @@ margin-left: 101px;
   line-height: 1;
   border-radius: 0.3rem;
 }
-

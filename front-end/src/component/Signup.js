@@ -43,66 +43,39 @@ function Signup() {
     return (
         <>      
                 <Navbar/>
-                <div className="bodyy">
-                
-                    <div className="signup-form">
-                <form action="/examples/actions/confirmation.php" method="post" >
-                <div className="text-center">Already have an account? <NavLink to="/login">Login here</NavLink></div>
-                <h2>Sign Up</h2>
+                <br/>
+                <br/>
+            <div className="bodyy">
+            <form class="box" action="/examples/actions/confirmation.php" method="post" >
+                <div className="text-center text-muted small">Already have an account? <NavLink to="/login">Login here</NavLink></div>
+                <h2 style={{color: 'snow'}}>Sign Up</h2>
                 <hr />
-                <div style={{ color: 'red'}} className='text-center mb-2'>{error}</div>
-                <div className="form-group">
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">
-                                <span className="fa fa-user"></span>
-                            </span>
-                        </div>
+                <div style={{ color: 'red'}} className='text-center mb-2'>
+                    {error}
+                </div>
+                
                         <input type="text" onChange={(e) => {setError('')
                     setUname(e.target.value)}} className="form-control" name="userName" placeholder="Username" required="required" />
-                    </div>
-                </div>
-                <div className="form-group">
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">
-                                <i className="fa fa-paper-plane"></i>
-                            </span>
-                        </div>
+
+
                         <input type="email" onChange={(e) =>{setError('') 
                         setemail(e.target.value)}} className="form-control" name="email" placeholder="Email Address" required="required" />
-                    </div>
-                </div>
-                <div className="form-group">
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">
-                                <i className="fa fa-lock"></i>
-                            </span>
-                        </div>
+                
+            
                         <input type="password" onChange={(e) => {setError('')
                          setPass(e.target.value)}} className="form-control" name="password" placeholder="Password" required="required" />
-                    </div>
-                </div>
-                <div className="form-group">
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">
-                                <i className="fa fa-lock"></i>
-                            </span>
-                        </div>
+                    
+                
+               
                         <input type="password" onChange={(e) => {setError('') 
                         setPass2(e.target.value)}} className="form-control" name="password2" placeholder="Confirm Password" required="required" />
-                    </div>
-                </div>
-                <div className="form-group">
-                    <button type="submit" onClick={ onRegister } className="btn btn-primary btn-lg">Sign Up</button>
-                </div>
+                  
+                  <input type="submit" name="" onClick ={onRegister} value="Sign Up" ></input>
+                   
+                
                 </form>
+
             </div>
-            
-            </div>
-            
         </>
     )
 }

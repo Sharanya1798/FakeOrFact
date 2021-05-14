@@ -58,7 +58,7 @@ class allQueries extends React.Component {
     };
     fetch('http://localhost:3000/deletePost', requestOptions)
     .then(response => {
-      if(response.status == 200 ) {
+      if(response.status === 200 ) {
         cogoToast.success('Post has been successfully deleted', { hideAfter : 5 })
         this.getPosts();
       }
@@ -74,7 +74,7 @@ class allQueries extends React.Component {
     if(token)
     {
       const decoded = jwt_decode(token);
-      if(decoded.role == "admin")
+      if(decoded.role === "admin")
       {
         return posts.map((post, index) => (
           <div key={index}>
@@ -117,11 +117,10 @@ class allQueries extends React.Component {
   } 
 
   render() {
-    const { is_visible } = this.state;
     let filteredPosts = this.state.posts.filter(
       (post) => {
             return post.queryName.toLowerCase().indexOf(
-              this.state.search.toLowerCase()) != -1 ;
+              this.state.search.toLowerCase()) !== -1 ;
       }
     );
     return(

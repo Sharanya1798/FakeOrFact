@@ -58,7 +58,6 @@ class myQueries extends React.Component {
 
   render() {
     const posts = this.state.posts;
-    const { is_visible } = this.state;
     if(!posts.length) return (<> <Navbar/><div><h2 className="text-center2">No posts yet!! Start by adding a new post</h2></div> </>);
 
     return(

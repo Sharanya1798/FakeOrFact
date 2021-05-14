@@ -26,7 +26,7 @@ router.post('/add', verify,async (req,res) => {
     try {
         const savedComment = await comment.save();
         const savedCommentWithUserData = await Comment.findById(savedComment._id).populate('user');
-        logger.info("message from winston : Comments has been added successfully for post ",{ message: post_ID } );
+        logger.info("message from winston : Comments has been added successfully for post ",{ message: req.body.post_ID } );
         res.send(savedCommentWithUserData); 
     }catch(err){
         logger.error("message from winston : Some error occured" );

@@ -30,8 +30,8 @@ class Comment extends Component {
       }
       else{
         const decoded = jwt_decode(localStorage.getItem('my_token'));
-        this.state.publisher = decoded.id;
-         
+        this.setState({publisher : decoded.id})
+       // this.state.publisher = decoded.id;
         }    
     }
 

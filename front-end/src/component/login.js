@@ -1,13 +1,21 @@
-import React, { useState } from 'react'
-import { NavLink,useHistory } from 'react-router-dom'
-function Login() {
-    const [userName,setuserName] = useState("");
-    const [password,setPassword] = useState("");
-    const [error,setError] = useState("");
-    const history = useHistory()
+import React from 'react'
+import { NavLink } from 'react-router-dom'
+export default class Login extends React.Component {
+    constructor()
+    {
+        super()
+        this.state = {
+            userName: '',
+            password: '',
+            isLogin: false,
+            error: ''
+        }
+    }
 
-    const onLogin = (e)=>{
+    onLogin = (e)=>{
         e.preventDefault()
+        const userName = this.state.userName
+        const password = this.state.password
         const data = {userName,password}
         const requestOptions = {
             method: 'POST',
@@ -20,24 +28,25 @@ function Login() {
           };
           fetch('http://localhost:3000/signin', requestOptions)
           .then(response => {
-            
+
             if(response.status !== 200 ) {
                 return response.json().then((body) => {
                     console.log('red',body);
-                    setError(body.msg)
+                    this.setState({error: body.msg})
                   })
             }
             response.json()
                 .then(responseJson => {
-                history.push("/allQueries")
-                localStorage.setItem('my_token', responseJson.new_token);
-                console.log("login successful")
+                    this.setState({isLogin: true})
+                    window.location = '/allQueries'
+                    localStorage.setItem('my_token', responseJson.new_token);
+                    console.log("login successful")
                 })
 
           })
           .then(data => console.log(data));        
     }
-
+    render() {
     return (
         <>
          
@@ -46,19 +55,17 @@ function Login() {
                 <p className="text-center text-muted small">Don't have an account? <NavLink to="/signup">Sign up here!</NavLink></p>
                 <h1 style={{color: 'snow'}}>Login</h1>
                 <div style={{ color: 'red'}} className='text-center mb-2'>
-                    {error}
+                    {this.state.error}
                 </div>
-                <input type="text" onChange={(e)=> {
-                    setError('')
-                    setuserName(e.target.value)}}
+                <input type="text" onChange = {(e)=> {
+                    this.setState({userName: e.target.value, error: ''})}}
                      className="form-control" name="username" placeholder="Username" required="required"/>	
 
-                <input type="password" onChange={(e)=> {
-                    setError('')
-                    setPassword(e.target.value)}} className="form-control" name="password" placeholder="Password" required="required"/>
+                <input type="password" onChange= {(e)=> {
+                    this.setState({password: e.target.value, error: ''})}} className="form-control" name="password" placeholder="Password" required="required"/>
 
-                <input type="submit" name="" onClick ={onLogin} value="Login" ></input>
-                
+                <input type="submit" name="submit" onClick ={this.onLogin} value="Login" ></input>
+                {/* <button name = "submit" onClick={this.onLogin}>Login</button>  */}
                 <div >
                         <NavLink to="#" className="float-right" >Forgot Password?</NavLink>
                 </div>
@@ -67,6 +74,5 @@ function Login() {
         </div>
         </>
     )
+    }
 }
-
-export default Login

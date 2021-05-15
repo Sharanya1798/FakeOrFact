@@ -9,15 +9,17 @@ const logger = require("../../logger/loggerConfig");
 
 
 exports.singin = (req,res) =>{
+
     const {userName,password} = req.body;
     if(isEmpty(userName) || isEmpty(password))
         res.status(400).send({msg : "Required fields are empty !!"})
     else {
-
     User.findOne({userName},(err,foundUser)=>{
         if(foundUser){
+
             bcrypt.compare(password,foundUser.password,(err,result)=>{
                 if (result){
+
                       var token = jwt.sign(
                         {id : foundUser._id, role : foundUser.role},
                         config.secret,
@@ -25,22 +27,21 @@ exports.singin = (req,res) =>{
                           expiresIn: 31556926 // 1 year in seconds
                         }
                     );
+                    logger.info("message from winston : signed in successfully for user -->",{ message: foundUser.userName } );
                     res.header('auth-header',token);
                     res.json({new_token: token});
-                    logger.info("message from winston : signed in successfully for user -->",{ message: foundUser.userName } );
                 }else if(err){
                     console.log(err);
-                    res.status(400).send({msg : "error found"})
                     logger.error("some error found");
+                    res.status(400).send({msg : "error found"})
                 }else{
-                    res.status(400).send({msg: "invalid password", auth: false, token: null});
                     logger.error("Invalid password for--> ", {message: foundUser.userName});
+                    res.status(400).send({msg: "invalid password", auth: false, token: null});
                 }
             })
         } else {
-            res.status(400).send({msg: "Username not found"});
             logger.error("message from winston : Username not found for", {message: userName});
-
+            res.status(400).send({msg: "Username not found"});
         }
     })}
 }
@@ -64,10 +65,12 @@ exports.signup = (req,res) =>{
         res.status(400).send({msg : "Both Passwords must match"})
     } else {
         User.findOne({ userName: userName }).then(user => {
+            console.log("came here")
             if (user) {
                 logger.error("message from winston : UserName already exists, try other" );
                 return res.status(400).send({ msg: "UserName already exists, try other" });
             } else {
+
                 bcrypt.hash(password,10,(err,hash)=>{
                     const newSignup = new User({
                         userName,email,password:hash

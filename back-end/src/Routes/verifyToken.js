@@ -12,6 +12,6 @@ module.exports = function (req,res,next){
         next();
     }catch(err){
         logger.error("message from winston : Invalid token found " );
-        res.status(400).send('Invalid token');
+        res.status(400).send({msg: 'Invalid token'});
     }
 }

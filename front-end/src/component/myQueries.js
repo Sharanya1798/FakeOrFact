@@ -28,7 +28,7 @@ class myQueries extends React.Component {
       .then(response => {
         response.json()
                 .then(responseJson => {
-                const queries  = responseJson.queries;
+                const queries  = responseJson.myPosts;
                 this.setState({ posts: queries })
                 console.log("Data has been received!")
                 })

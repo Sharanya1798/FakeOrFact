@@ -169,3 +169,216 @@
 2021-05-14 22:58:39, info, message from winston : Posts data retrieved successfully!!
 2021-05-14 22:58:53, info, message from winston : Comments are retrieved successfully for  60900a12b5aa36cf98eec5bd
 2021-05-15 10:01:59, info, message from winston : Posts data retrieved successfully!!
+2021-05-15 10:35:02, error, message from winston : UserName already exists, try other
+2021-05-15 10:35:02, error, message from winston : UserName already exists, try other
+2021-05-15 10:36:08, error, message from winston : UserName already exists, try other
+2021-05-15 10:36:08, error, message from winston : UserName already exists, try other
+2021-05-15 10:36:36, error, message from winston : UserName already exists, try other
+2021-05-15 10:36:36, error, message from winston : UserName already exists, try other
+2021-05-15 10:51:00, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 10:51:03, info, Database is connected Successfully !!
+2021-05-15 10:59:47, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 10:59:49, info, Database is connected Successfully !!
+2021-05-15 11:20:19, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 11:20:21, info, Database is connected Successfully !!
+2021-05-15 11:21:29, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 11:21:31, info, Database is connected Successfully !!
+2021-05-15 11:40:31, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 11:40:33, info, Database is connected Successfully !!
+2021-05-15 11:41:11, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 11:41:13, info, Database is connected Successfully !!
+2021-05-15 11:41:54, info, message from winston : Posts data retrieved successfully!!
+2021-05-15 11:42:06, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 11:42:06, info, message from winston : Posts data retrieved successfully!!
+2021-05-15 11:44:22, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 11:48:02, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 11:48:05, info, Database is connected Successfully !!
+2021-05-15 11:48:34, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 11:48:36, info, Database is connected Successfully !!
+2021-05-15 11:51:10, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 11:51:12, info, Database is connected Successfully !!
+2021-05-15 11:51:25, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 11:57:23, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 11:57:25, info, Database is connected Successfully !!
+2021-05-15 11:57:57, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:00:03, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:00:07, info, Database is connected Successfully !!
+2021-05-15 12:02:00, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:02:02, info, Database is connected Successfully !!
+2021-05-15 12:02:19, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:02:21, info, Database is connected Successfully !!
+2021-05-15 12:02:21, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 12:04:01, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:04:05, info, Database is connected Successfully !!
+2021-05-15 12:04:45, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:04:47, info, Database is connected Successfully !!
+2021-05-15 12:04:56, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:04:57, info, Database is connected Successfully !!
+2021-05-15 12:04:58, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 12:08:31, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:08:34, info, Database is connected Successfully !!
+2021-05-15 12:08:44, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:08:46, info, Database is connected Successfully !!
+2021-05-15 12:08:46, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 12:20:37, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:20:43, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:20:45, info, Database is connected Successfully !!
+2021-05-15 12:20:45, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 12:20:59, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:21:01, info, Database is connected Successfully !!
+2021-05-15 12:21:01, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 12:21:23, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:21:25, info, Database is connected Successfully !!
+2021-05-15 12:21:39, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:21:41, info, Database is connected Successfully !!
+2021-05-15 12:21:53, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:21:55, info, Database is connected Successfully !!
+2021-05-15 12:21:55, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 12:22:24, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:22:26, info, Database is connected Successfully !!
+2021-05-15 12:22:34, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:22:36, info, Database is connected Successfully !!
+2021-05-15 12:22:36, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 12:23:39, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:23:41, info, Database is connected Successfully !!
+2021-05-15 12:25:04, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:25:06, info, Database is connected Successfully !!
+2021-05-15 12:25:15, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:25:16, info, Database is connected Successfully !!
+2021-05-15 12:25:16, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 12:25:16, error, Invalid password for-->  sharanya
+2021-05-15 12:26:31, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:26:34, info, Database is connected Successfully !!
+2021-05-15 12:26:43, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 12:26:45, info, Database is connected Successfully !!
+2021-05-15 12:26:46, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 12:26:46, error, Invalid password for-->  sharanya
+2021-05-15 13:36:32, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:40:25, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:40:36, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:41:11, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:41:12, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:41:29, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:42:19, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:42:21, info, Database is connected Successfully !!
+2021-05-15 13:42:21, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 13:42:22, error, Invalid password for-->  sharanya
+2021-05-15 13:42:22, error, message from winston : Both Passwords must match
+2021-05-15 13:43:26, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:43:28, info, Database is connected Successfully !!
+2021-05-15 13:43:37, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:43:39, info, Database is connected Successfully !!
+2021-05-15 13:43:39, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 13:43:40, error, Invalid password for-->  sharanya
+2021-05-15 13:43:40, error, message from winston : UserName already exists, try other
+2021-05-15 13:43:40, error, message from winston : Both Passwords must match
+2021-05-15 13:46:25, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:46:26, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:46:29, info, Database is connected Successfully !!
+2021-05-15 13:46:36, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:46:38, info, Database is connected Successfully !!
+2021-05-15 13:46:38, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 13:46:38, error, Invalid password for-->  sharanya
+2021-05-15 13:46:39, error, message from winston : UserName already exists, try other
+2021-05-15 13:46:39, error, message from winston : Both Passwords must match
+2021-05-15 13:47:01, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:47:03, info, Database is connected Successfully !!
+2021-05-15 13:47:26, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:47:29, info, Database is connected Successfully !!
+2021-05-15 13:47:35, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:47:37, info, Database is connected Successfully !!
+2021-05-15 13:47:37, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 13:47:38, error, Invalid password for-->  sharanya
+2021-05-15 13:47:39, error, message from winston : UserName already exists, try other
+2021-05-15 13:47:39, error, message from winston : Both Passwords must match
+2021-05-15 13:50:01, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:50:04, info, Database is connected Successfully !!
+2021-05-15 13:50:32, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:50:39, info, Database is connected Successfully !!
+2021-05-15 13:50:42, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:50:45, info, Database is connected Successfully !!
+2021-05-15 13:50:49, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:51:07, info, Database is connected Successfully !!
+2021-05-15 13:51:07, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 13:51:08, error, Invalid password for-->  sharanya
+2021-05-15 13:51:08, error, message from winston : UserName already exists, try other
+2021-05-15 13:51:08, error, message from winston : Both Passwords must match
+2021-05-15 13:53:47, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:53:49, info, Database is connected Successfully !!
+2021-05-15 13:53:52, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:53:59, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:54:06, info, Database is connected Successfully !!
+2021-05-15 13:54:06, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 13:54:06, error, Invalid password for-->  sharanya
+2021-05-15 13:54:06, error, message from winston : UserName already exists, try other
+2021-05-15 13:54:06, error, message from winston : Both Passwords must match
+2021-05-15 13:54:40, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:54:49, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 13:54:53, info, Database is connected Successfully !!
+2021-05-15 13:54:54, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 13:54:54, error, Invalid password for-->  sharanya
+2021-05-15 13:54:55, error, message from winston : Both Passwords must match
+2021-05-15 14:05:28, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:05:31, info, Database is connected Successfully !!
+2021-05-15 14:15:19, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:15:22, info, Database is connected Successfully !!
+2021-05-15 14:22:12, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:22:15, info, Database is connected Successfully !!
+2021-05-15 14:22:26, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:22:27, info, Database is connected Successfully !!
+2021-05-15 14:22:53, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:22:55, info, Database is connected Successfully !!
+2021-05-15 14:22:56, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 14:22:56, error, Invalid password for-->  sharanya
+2021-05-15 14:22:56, error, message from winston : Both Passwords must match
+2021-05-15 14:22:57, info, message from winston : post submitted successfully !!
+2021-05-15 14:22:57, error, message from winston : Some error occured
+2021-05-15 14:25:07, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:25:10, info, Database is connected Successfully !!
+2021-05-15 14:25:16, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:25:19, info, Database is connected Successfully !!
+2021-05-15 14:25:19, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 14:25:19, error, Invalid password for-->  sharanya
+2021-05-15 14:25:19, error, message from winston : Both Passwords must match
+2021-05-15 14:25:20, info, message from winston : post submitted successfully !!
+2021-05-15 14:25:20, error, message from winston : Some error occured
+2021-05-15 14:34:27, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:34:29, info, Database is connected Successfully !!
+2021-05-15 14:39:06, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:39:09, info, Database is connected Successfully !!
+2021-05-15 14:40:45, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:40:47, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:40:49, info, Database is connected Successfully !!
+2021-05-15 14:40:57, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:40:59, info, Database is connected Successfully !!
+2021-05-15 14:41:00, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 14:41:00, error, Invalid password for-->  sharanya
+2021-05-15 14:41:00, error, message from winston : Both Passwords must match
+2021-05-15 14:41:00, error, message from winston : Some error occured
+2021-05-15 14:41:01, info, message from winston : Individual posts retrieved successfully !!
+2021-05-15 14:41:01, error, message from winston : Error Retrieving Individual posts
+2021-05-15 14:42:14, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:42:14, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:42:17, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:42:19, info, Database is connected Successfully !!
+2021-05-15 14:42:48, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:42:50, info, Database is connected Successfully !!
+2021-05-15 14:42:50, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 14:42:51, error, Invalid password for-->  sharanya
+2021-05-15 14:42:51, error, message from winston : Both Passwords must match
+2021-05-15 14:42:51, info, message from winston : post submitted successfully !!
+2021-05-15 14:42:51, error, message from winston : Some error occured
+2021-05-15 14:42:51, info, message from winston : Individual posts retrieved successfully !!
+2021-05-15 14:42:51, error, message from winston : Error Retrieving Individual posts
+2021-05-15 14:45:55, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 14:45:58, info, Database is connected Successfully !!
+2021-05-15 14:46:15, info, message from winston : Posts data retrieved successfully!!
+2021-05-15 14:46:25, info, message from winston : signed in successfully for user --> sharanya
+2021-05-15 14:46:26, info, message from winston : Posts data retrieved successfully!!
+2021-05-15 14:46:32, info, message from winston : Individual posts retrieved successfully !!
+2021-05-15 14:47:36, info, message from winston : Individual posts retrieved successfully !!
+2021-05-15 14:47:59, info, message from winston : Individual posts retrieved successfully !!
+2021-05-15 15:59:40, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-15 15:59:42, info, Database is connected Successfully !!
+2021-05-15 15:59:49, info, message from winston : Posts data retrieved successfully!!
+2021-05-15 16:00:36, error, message from winston : UserName already exists, try other

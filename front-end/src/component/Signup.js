@@ -17,6 +17,7 @@ export default class Signup extends React.Component {
   }
 
   onRegister = (e) => {
+    e.preventDefault()
       const userName = this.state.userName;
       const email = this.state.email;
       const password = this.state.password;
@@ -64,7 +65,7 @@ export default class Signup extends React.Component {
                 <div style={{ color: 'red'}} className='text-center mb-2'>
                     {this.state.error}
                 </div>
-                   
+                  
                         <input type="text" onChange={(e) => {
                     this.setState({userName: e.target.value, error: ''})}} className="form-control" name="userName" placeholder="Username" required="required" />
 
@@ -81,7 +82,8 @@ export default class Signup extends React.Component {
                         <input type="password" onChange={(e) => {
                     this.setState({password2: e.target.value, error: ''})}} className="form-control" name="password2" placeholder="Confirm Password" required="required" />
                   
-                        <button name = "submit" onClick={this.onRegister}>Sign Up</button> 
+                  <input type="submit" name="" onClick ={this.onRegister} value="Sign Up" ></input>
+                  {/* <button name = "submit" onClick={this.onRegister}>Sign Up</button>  */}
 
                 
                 </form>

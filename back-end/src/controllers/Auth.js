@@ -29,7 +29,7 @@ exports.singin = (req,res) =>{
                     );
                     logger.info("message from winston : signed in successfully for user -->",{ message: foundUser.userName } );
                     res.header('auth-header',token);
-                    res.json({new_token: token});
+                    res.status(200).json({new_token: token});
                 }else if(err){
                     console.log(err);
                     logger.error("some error found");
@@ -65,7 +65,6 @@ exports.signup = (req,res) =>{
         res.status(400).send({msg : "Both Passwords must match"})
     } else {
         User.findOne({ userName: userName }).then(user => {
-            console.log("came here")
             if (user) {
                 logger.error("message from winston : UserName already exists, try other" );
                 return res.status(400).send({ msg: "UserName already exists, try other" });
@@ -75,7 +74,7 @@ exports.signup = (req,res) =>{
                     const newSignup = new User({
                         userName,email,password:hash
                     });
-                    newSignup.save().then(user => res.json(user)).catch(err => res.send("Some error occured"));
+                    newSignup.save().then(user => res.status(200).send({details: user})).catch(err => res.send("Some error occured"));
                 });
             }
         });
@@ -97,12 +96,12 @@ exports.raiseQuery = (req, res) => {
         const newQuery = new Queries({
             user_ID,email,queryName,queryDec
         });
-        newQuery.save().then(user => {
+        newQuery.save().then(posted => {
             logger.info("message from winston : post submitted successfully !!" );
-            res.json(user)
+            res.status(200).send({posted: posted})
         }).catch(err => {
             logger.error("message from winston : Some error occured" );
-            res.send("Some error occured")});
+            res.send({msg: "Some error occured"})});
     }
 }
 
@@ -117,8 +116,10 @@ exports.myQueries = (req, res) => {
     const user_ID = req.body.user_ID;
     Queries.find({ "user_ID": user_ID }).then(list => {
         logger.info("message from winston : Individual posts retrieved successfully !!" );
-        res.json({queries: list});
-    }); 
+        res.status(200).send({myPosts: list});
+    }).catch(err => {
+        logger.error("message from winston : Error Retrieving Individual posts" );
+        res.send({msg: "Some error occured"})});
 }
 
 exports.deletePost = (req, res) => {

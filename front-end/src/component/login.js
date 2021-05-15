@@ -16,7 +16,7 @@ export default class Login extends React.Component {
         e.preventDefault()
         const userName = this.state.userName
         const password = this.state.password
-        const data = {userName,password}
+        const data = {userName, password}
         const requestOptions = {
             method: 'POST',
             mode: 'cors',

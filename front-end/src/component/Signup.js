@@ -58,7 +58,7 @@ export default class Signup extends React.Component {
                 <br/>
                 <br/>
             <div className="bodyy">
-            <form class="box" action="/examples/actions/confirmation.php" method="post" >
+            <form class="box1" action="/examples/actions/confirmation.php" method="post" >
                 <div className="text-center text-muted small">Already have an account? <NavLink to="/login">Login here</NavLink></div>
                 <h2 style={{color: 'snow'}}>Sign Up</h2>
                 <hr />

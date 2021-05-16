@@ -382,3 +382,51 @@
 2021-05-15 15:59:42, info, Database is connected Successfully !!
 2021-05-15 15:59:49, info, message from winston : Posts data retrieved successfully!!
 2021-05-15 16:00:36, error, message from winston : UserName already exists, try other
+2021-05-16 13:02:56, info, Server is connected, and running on port 3000 Successfully !!
+2021-05-16 13:03:00, info, Database is connected Successfully !!
+2021-05-16 13:03:08, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:04:20, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:04:35, info, message from winston : Comments are retrieved successfully for  609fd85fb2e6290a646abbf4
+2021-05-16 13:04:56, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:05:43, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:06:09, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:07:42, info, message from winston : signed in successfully for user --> sharanya
+2021-05-16 13:07:43, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:08:16, info, message from winston : Individual posts retrieved successfully !!
+2021-05-16 13:08:23, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:08:33, info, message from winston : signed in successfully for user --> shubham
+2021-05-16 13:08:34, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:08:48, info, message from winston : Individual posts retrieved successfully !!
+2021-05-16 13:08:52, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:10:23, info, message from winston : signed in successfully for user --> shobha
+2021-05-16 13:10:24, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:11:06, info, message from winston : Comments are retrieved successfully for  609fd8bfb2e6290a646abbf6
+2021-05-16 13:11:20, info, message from winston : Token has been verified successfully for  609e0630e9f3e72fad2ce84f
+2021-05-16 13:11:20, info, message from winston : Comments has been added successfully for post  609fd8bfb2e6290a646abbf6
+2021-05-16 13:22:29, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:26:28, info, message from winston : signed in successfully for user --> shobha
+2021-05-16 13:26:29, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:26:43, info, message from winston : Comments are retrieved successfully for  609fd8bfb2e6290a646abbf6
+2021-05-16 13:26:54, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:26:59, info, message from winston : signed in successfully for user --> sharanya
+2021-05-16 13:27:04, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:27:06, info, message from winston : Comments are retrieved successfully for  609fd8bfb2e6290a646abbf6
+2021-05-16 13:27:08, info, message from winston : Token has been verified successfully for  6081b906832d6c5d3ddc1604
+2021-05-16 13:27:10, error, message from winston : Some error occured
+2021-05-16 13:27:59, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:28:07, info, message from winston : Comments are retrieved successfully for  609fd991b2e6290a646abbfa
+2021-05-16 13:36:18, info, message from winston : Individual posts retrieved successfully !!
+2021-05-16 13:36:23, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:36:30, info, message from winston : signed in successfully for user --> shobha
+2021-05-16 13:36:31, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:36:32, info, message from winston : Individual posts retrieved successfully !!
+2021-05-16 13:36:34, info, message from winston : Individual posts retrieved successfully !!
+2021-05-16 13:36:36, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:37:45, info, message from winston : post submitted successfully !!
+2021-05-16 13:37:45, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:37:49, info, message from winston : Individual posts retrieved successfully !!
+2021-05-16 13:37:57, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:38:46, info, message from winston : post submitted successfully !!
+2021-05-16 13:38:47, info, message from winston : Posts data retrieved successfully!!
+2021-05-16 13:38:48, info, message from winston : Individual posts retrieved successfully !!
+2021-05-16 15:15:47, info, message from winston : Posts data retrieved successfully!!
